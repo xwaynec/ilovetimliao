@@ -8,7 +8,7 @@ setup(
     author='xwaynec',
     author_email='xwaynec@gmail.com',
     packages=['ilovetim'],
-    url='https://github.com/xwaynec/ilovetim',
+    url='https://github.com/xwaynec/ilovetimliao',
     license=license,
     description='Download images from instagram',
     test_suite='tests',
