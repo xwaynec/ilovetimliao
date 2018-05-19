@@ -7,7 +7,8 @@ import sys
 import time
 import platform
 import requests
-import urlparse
+import urllib.request
+
 
 from bs4 import BeautifulSoup
 
@@ -44,7 +45,7 @@ def create_ilovetim_and_username_folder(username):
     return folder
 
 def ilovetim(url):
-    print 'start fetch url: %s' %(url)
+    print('start fetch url: %s' %(url))
 
     r = requests.get(
         url=url,
@@ -66,12 +67,12 @@ def ilovetim(url):
         filename = element['src'].rsplit('/', 1)[1].split('?')[0]
 
         resp = requests.get(element['src'])
-        print 'fetch %s' % (filename)
+        print('fetch %s' % (filename))
 
         with open(os.path.join(folder, filename), 'wb+') as f:
             f.write(resp.content)
 
-    print 'Winter is comming'
+    print('Winter is comming')
 
 def main():
     try:
