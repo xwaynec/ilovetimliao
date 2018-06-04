@@ -8,7 +8,7 @@ import time
 import platform
 import requests
 import urllib.request
-
+from urllib.parse import urlparse, parse_qs
 
 from bs4 import BeautifulSoup
 
@@ -57,8 +57,8 @@ def ilovetim(url):
     soup = BeautifulSoup(r.content, 'html.parser')
 
 
-    parsed      = urlparse.urlparse(url)
-    tid         = urlparse.parse_qs(parsed.query)['tid'][0]
+    parsed      = urlparse(url)
+    tid         = parse_qs(parsed.query)['tid'][0]
     title       = soup.find_all('h1')[0].string
     images      = soup.find_all('img', class_="imglimit")
     folder      = create_ilovetim_and_username_folder(tid + title)
